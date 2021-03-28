@@ -38,7 +38,7 @@ function setup(){
     bird = new Bird(100,100);
     log6 = new Log(100,100,80,PI/2);
 
-    string = new String(bird.body,log6.body)
+    string = new String(bird.body,{x:100,y:50})
    
 }
 
@@ -68,4 +68,12 @@ function draw(){
     platform.display();
 
     string.display();
+}
+
+function mouseDragged(){
+    Matter.Body.setPosition(bird.body,{x:mouseX,y:mouseY})
+}
+
+function mouseReleased() {
+    string.fly()
 }
